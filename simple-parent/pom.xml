@@ -1,0 +1,57 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.mytutos.maven</groupId>
+  <artifactId>simple-parent</artifactId>
+  <version>1.0</version>
+  <packaging>pom</packaging>
+  <name>simple-parent</name>
+  <description>organization parent pom</description>
+  
+  <!-- common dependencies for projects -->
+  <dependencies>
+	    <dependency>
+	      <groupId>junit</groupId>
+	      <artifactId>junit</artifactId>
+	      <version>3.8.1</version>
+	      <scope>test</scope>
+	    </dependency>
+</dependencies>
+
+<!-- common plugins for projects -->
+<build>     
+  <plugins> 
+	   <!-- jetty embedded server -->
+      <plugin>
+		  <groupId>org.eclipse.jetty</groupId>
+		  <artifactId>jetty-maven-plugin</artifactId>
+		  <version>9.0.6.v20130930</version>	 
+	  </plugin>
+	   <!-- tomcat embedded server -->
+	   <plugin>
+  			<groupId>org.apache.tomcat.maven</groupId>
+  			<artifactId>tomcat7-maven-plugin</artifactId>
+  			<version>2.1</version>
+ 	  </plugin>
+ 	  <!-- jdk configuration -->
+ 	  <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.1</version>
+        <configuration>
+          <source>1.7</source>
+          <target>1.7</target>
+        </configuration>
+      </plugin>
+      <!-- 
+      The WAR Plugin is responsible for collecting all artifact dependencies, classes and resources of the web application 
+      and packaging them into a web application archive
+       -->
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.3</version>
+        <configuration>
+          <failOnMissingWebXml>false</failOnMissingWebXml>
+        </configuration>
+      </plugin>         	 
+	</plugins>
+ </build>
+</project>
