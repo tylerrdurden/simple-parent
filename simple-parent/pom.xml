@@ -7,6 +7,7 @@
   <name>simple-parent</name>
   <description>organization parent pom</description>
   
+  <!-- test1 -->
   <!-- common dependencies for projects -->
   <dependencies>
 	    <dependency>
